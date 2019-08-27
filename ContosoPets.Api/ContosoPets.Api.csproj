@@ -10,4 +10,9 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ContosoPets.DataAccess\ContosoPets.DataAccess.csproj" />
+    <ProjectReference Include="..\ContosoPets.Domain\ContosoPets.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

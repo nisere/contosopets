@@ -1,9 +1,9 @@
 using System;
+using ContosoPets.DataAccess.Data;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using ContosoPets.Api.Data;
 
 namespace ContosoPets.Api
 {

@@ -1,17 +1,11 @@
-using Microsoft.EntityFrameworkCore;
-using ContosoPets.Api.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using ContosoPets.DataAccess.Data;
+using ContosoPets.DataAccess.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace ContosoPets.Api
 {
@@ -29,6 +23,21 @@ namespace ContosoPets.Api
         {
             services.AddDbContext<ContosoPetsContext>(options =>
         options.UseInMemoryDatabase("ContosoPets"));
+
+            services.AddScoped<OrderService>();
+
+//            var builder = new SqlConnectionStringBuilder(
+//    Configuration.GetConnectionString("ContosoPets"));
+//IConfigurationSection contosoPetsCredentials =
+//    Configuration.GetSection("ContosoPetsCredentials");
+
+//builder.UserID = contosoPetsCredentials["UserId"];
+//builder.Password = contosoPetsCredentials["Password"];
+
+//services.AddDbContext<ContosoPetsContext>(options =>
+//    options.UseSqlServer(builder.ConnectionString)
+//           .EnableSensitiveDataLogging(Configuration.GetValue<bool>("Logging:EnableSqlParameterLogging")));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             
         }

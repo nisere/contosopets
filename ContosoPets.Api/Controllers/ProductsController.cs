@@ -3,8 +3,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ContosoPets.Api.Data;
-using ContosoPets.Api.Models;
+using ContosoPets.DataAccess.Data;
+using ContosoPets.Domain.Models;
 
 namespace ContosoPets.Api.Controllers
 {
@@ -25,7 +25,7 @@ namespace ContosoPets.Api.Controllers
 
         // GET by ID action
         [HttpGet("{id}")]
-public async Task<ActionResult<Product>> GetById(long id)
+public async Task<ActionResult<Product>> GetById(int id)
 {
     var product = await _context.Products.FindAsync(id);
 
@@ -49,7 +49,7 @@ public async Task<ActionResult<Product>> Create(Product product)
 
         // PUT action
         [HttpPut("{id}")]
-public async Task<IActionResult> Update(long id, Product product)
+public async Task<IActionResult> Update(int id, Product product)
 {
     if (id != product.Id)
     {
@@ -64,7 +64,7 @@ public async Task<IActionResult> Update(long id, Product product)
 
         // DELETE action
         [HttpDelete("{id}")]
-public async Task<IActionResult> Delete(long id)
+public async Task<IActionResult> Delete(int id)
 {
     var product = await _context.Products.FindAsync(id);
 
