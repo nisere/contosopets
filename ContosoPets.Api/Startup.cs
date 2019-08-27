@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Data.SqlClient;
 
 namespace ContosoPets.Api
 {
@@ -21,22 +22,23 @@ namespace ContosoPets.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ContosoPetsContext>(options =>
-        options.UseInMemoryDatabase("ContosoPets"));
+        //    services.AddDbContext<ContosoPetsContext>(options =>
+        //options.UseInMemoryDatabase("ContosoPets"));
 
             services.AddScoped<OrderService>();
 
-//            var builder = new SqlConnectionStringBuilder(
-//    Configuration.GetConnectionString("ContosoPets"));
-//IConfigurationSection contosoPetsCredentials =
-//    Configuration.GetSection("ContosoPetsCredentials");
+            var builder = new SqlConnectionStringBuilder(
+    Configuration.GetConnectionString("ContosoPets"));
 
-//builder.UserID = contosoPetsCredentials["UserId"];
-//builder.Password = contosoPetsCredentials["Password"];
+            //IConfigurationSection contosoPetsCredentials =
+            //    Configuration.GetSection("ContosoPetsCredentials");
 
-//services.AddDbContext<ContosoPetsContext>(options =>
-//    options.UseSqlServer(builder.ConnectionString)
-//           .EnableSensitiveDataLogging(Configuration.GetValue<bool>("Logging:EnableSqlParameterLogging")));
+            //builder.UserID = contosoPetsCredentials["UserId"];
+            //builder.Password = contosoPetsCredentials["Password"];
+
+            services.AddDbContext<ContosoPetsContext>(options =>
+                options.UseSqlServer(builder.ConnectionString)
+                       .EnableSensitiveDataLogging(Configuration.GetValue<bool>("Logging:EnableSqlParameterLogging")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             
