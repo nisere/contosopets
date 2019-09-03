@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace ContosoPets.Domain.Models
@@ -22,6 +23,8 @@ namespace ContosoPets.Domain.Models
         public string PostalCode { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
+		public  DateTime RegisterTime { get; set; }
+		public string Useless { get; set; }
 
         public ICollection<Order> Orders { get; set; }
     }

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ContosoPets.DataAccess.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class AddResisterTime : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -22,7 +22,8 @@ namespace ContosoPets.DataAccess.Migrations
                     Country = table.Column<string>(nullable: true),
                     PostalCode = table.Column<string>(nullable: true),
                     Phone = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true)
+                    Email = table.Column<string>(nullable: true),
+                    RegisterTime = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {

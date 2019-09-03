@@ -12,7 +12,7 @@ namespace ContosoPets.Api
         public static void Main(string[] args)
         {
             var host = CreateWebHostBuilder(args).Build();
-            SeedDatabase(host);
+            //SeedDatabase(host);
             host.Run();
         }
 

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContosoPets.DataAccess.Migrations
 {
     [DbContext(typeof(ContosoPetsContext))]
-    [Migration("20190827123935_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20190903084328_AddUseless")]
+    partial class AddUseless
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -43,9 +43,13 @@ namespace ContosoPets.DataAccess.Migrations
 
                     b.Property<string>("PostalCode");
 
+                    b.Property<DateTime>("RegisterTime");
+
                     b.Property<string>("StateOrProvinceAbbr");
 
                     b.Property<string>("StreetAddress");
+
+                    b.Property<string>("Useless");
 
                     b.HasKey("Id");
 
